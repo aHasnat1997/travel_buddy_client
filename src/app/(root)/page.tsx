@@ -1,9 +1,9 @@
-import Hero from "@/components/Hero/Hero";
+import Hero from "@/components/Hero";
 import { Box } from "@mui/material";
 
 function Home() {
   return (
-    <Box>
+    <Box position='relative'>
       <Hero />
     </Box>
   );

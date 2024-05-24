@@ -13,18 +13,18 @@ const roleBasedPrivateRoutes = {
 
 // This function can be marked `async` if using `await` inside
 export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
-  const accessToken = cookies().get('access_token')?.value;
-  const { role } = jwtDecode(accessToken!) as TUser;
+  // const { pathname } = request.nextUrl;
+  // const accessToken = cookies().get('access_token')?.value;
+  // const { role } = jwtDecode(accessToken!) as TUser;
 
-  if (!accessToken) {
-    return NextResponse.redirect(new URL('/', request.url))
-  }
+  // if (!accessToken) {
+  //   return NextResponse.redirect(new URL('/', request.url))
+  // }
 
-  if (pathname === '/dashboard') {
-    return NextResponse.redirect(new URL(`/dashboard/${role.toLocaleLowerCase()}`, request.url))
+  // if (pathname === '/dashboard') {
+  //   return NextResponse.redirect(new URL(`/dashboard/${role.toLocaleLowerCase()}`, request.url))
 
-  }
+  // }
 
   // if (role) {
   //   if (role === ConstUserRole.ADMIN) {

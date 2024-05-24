@@ -40,13 +40,13 @@ const theme = createTheme({
     },
     MuiTextField: {
       defaultProps: {
-        variant: 'outlined',
+        variant: 'standard',
         fullWidth: true
       }
     }
   },
   typography: {
-    fontFamily: ['Nunito', 'sans'].join(',')
+    fontFamily: ['Poppins', 'sans-serif'].join(',')
   }
 });
 

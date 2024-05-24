@@ -44,7 +44,7 @@ function MainNav() {
             alt="Logo"
             src={assets.img.logo}
             height={120}
-            width={120}
+            width={150}
           />
         </Box>
         <Stack spacing='4rem'>

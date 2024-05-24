@@ -7,7 +7,7 @@ export default function RootLayout({
 }) {
   return (
     <main className="relative">
-      <div className="w-full absolute top-0 z-50">
+      <div>
         <MainNav />
       </div>
       {children}
