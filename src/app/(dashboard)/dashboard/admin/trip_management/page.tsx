@@ -1,3 +1,5 @@
+'use clint';
+
 import { Box, Stack, TextField } from "@mui/material";
 import TripTable from "./components/TripTable";
 import FullScreenDialog from "@/components/Ui/FullScreenDialog";
