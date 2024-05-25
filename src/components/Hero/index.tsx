@@ -1,9 +1,27 @@
 import assets from "@/assets";
-import { Box, Button, Container, Stack, Typography } from "@mui/material";
+import { Box, Container, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import SearchBar from "./SearchBar";
 
 function Hero() {
+  const services = [
+    {
+      icon: assets.img.serviceOne,
+      title: 'Lot of Choices',
+      pera: 'Lorem ipsum dolor sit ametc onsectetur adipiscing elit sed do eiusmod tempor incididun tut labore et dolore.'
+    },
+    {
+      icon: assets.img.serviceTwo,
+      title: 'Best Tour Guide',
+      pera: 'Lorem ipsum dolor sit ametc onsectetur adipiscing elit sed do eiusmod tempor incididun tut labore et dolore.'
+    },
+    {
+      icon: assets.img.serviceThree,
+      title: 'Easy Booking',
+      pera: 'Lorem ipsum dolor sit ametc onsectetur adipiscing elit sed do eiusmod tempor incididun tut labore et dolore.'
+    }
+  ]
+
   return (
     <Box sx={{
       background: 'linear-gradient(to top, #1ec28b17, #b1f3dd)',
@@ -24,11 +42,11 @@ function Hero() {
           src={assets.img.vectorTwo}
           height={150}
           width={150}
-          className="opacity-50"
+          className="opacity-50 animate-wiggle"
         />
       </Box>
       <Container>
-        <Stack height='80vh' alignItems='center' position='relative'>
+        <Stack height='85vh' alignItems='center' position='relative'>
           <Stack alignItems='start' width='50%' direction='column' gap='1rem'>
             <Typography variant="h5" color='primary.main' fontWeight='bold'>
               Discover New Horizons!
@@ -40,9 +58,6 @@ function Hero() {
               Discover amazing places at exclusive deals.
               Eat, Shop, Visit interesting places around the world.
             </Typography>
-            {/* <Button size="large">
-              Explore Now
-            </Button> */}
             <Box
               width='80%'
               position='absolute'
@@ -60,6 +75,51 @@ function Hero() {
             />
           </Box>
         </Stack>
+
+        <Box py='5rem'>
+          <Stack>
+            <Box width='60%'>
+              <Typography variant="h5" color='secondary.main' fontWeight='bold'>
+                WHAT WE SERVE
+              </Typography>
+              <Typography variant="h2" color='#2b2945' fontWeight='bold' textAlign='right' mr='15rem'>
+                TOP VALUES <br /> FOR YOU!
+              </Typography>
+            </Box>
+            <Box width='40%'>
+              <Image
+                alt="Icon"
+                src={assets.img.vectorFour}
+                width={1000}
+                height={1000}
+              />
+            </Box>
+          </Stack>
+          <Stack justifyContent='center' gap='2rem'>
+            {
+              services.map((service, i) => <Stack
+                key={i}
+                direction='column'
+                alignItems='center'
+                gap='1rem'
+                padding={8}
+                mt={6 * i}
+                className="rounded-xl bg-gradient-to-t from-[#1ec28b00] to-[#b1f3dd] group duration-500 hover:to-primary/40"
+              >
+                <Image
+                  alt="Icon"
+                  src={service.icon}
+                  width={100}
+                  height={100}
+                />
+                <Typography textAlign='center' variant='h5' fontWeight='bold' className='text-[#2b2945] group-hover:text-primary'>
+                  {service.title}
+                </Typography>
+                <Typography textAlign='center' color='#88a1a3'>{service.pera}</Typography>
+              </Stack>)
+            }
+          </Stack>
+        </Box>
       </Container>
     </Box>
   );
