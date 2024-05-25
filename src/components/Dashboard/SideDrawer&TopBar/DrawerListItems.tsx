@@ -1,9 +1,9 @@
 'use client';
 
 import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
-import AssistWalkerIcon from '@mui/icons-material/AssistWalker';
-import BiotechIcon from '@mui/icons-material/Biotech';
-import Groups2Icon from '@mui/icons-material/Groups2';
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
+import ConnectingAirportsIcon from '@mui/icons-material/ConnectingAirports';
+import ChecklistIcon from '@mui/icons-material/Checklist';
 import { useAppSelector } from '@/redux/hooks';
 import { RootState } from '@/redux/store';
 import { useEffect, useState } from 'react';
@@ -25,28 +25,29 @@ export default function DrawerListItems(): TList[] {
 
   const admin: TList[] = [
     {
-      icon: <SpaceDashboardIcon sx={{ color: '#fff' }} />,
+      icon: <SpaceDashboardIcon />,
       title: 'Dashboard',
       path: '/dashboard/admin'
     },
     {
-      icon: <BiotechIcon sx={{ color: '#fff' }} />,
-      title: 'Doctors',
-      path: '/dashboard/admin/doctors'
+      icon: <ConnectingAirportsIcon />,
+      title: 'Trip Management',
+      path: '/dashboard/admin/trip_management'
     },
     {
-      icon: <AssistWalkerIcon sx={{ color: '#fff' }} />,
-      title: 'Patients',
-      path: '/dashboard/admin/patients'
+      icon: <ChecklistIcon />,
+      title: 'Add Trip',
+      path: '/dashboard/admin/add_trip'
     },
     {
-      icon: <Groups2Icon sx={{ color: '#fff' }} />,
-      title: 'Admins',
-      path: '/dashboard/admin/admins'
+      icon: <PeopleAltIcon />,
+      title: 'User Management',
+      path: '/dashboard/admin/user_management'
     }
   ];
 
-  const list = currentStoredUser?.role === ConstUserRole.ADMIN ? admin : [];
+  // const list = currentStoredUser?.role === ConstUserRole.ADMIN ? admin : [];
+  const list = admin;
 
   return list;
 };

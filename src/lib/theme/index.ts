@@ -43,7 +43,7 @@ const theme = createTheme({
     },
     MuiTextField: {
       defaultProps: {
-        variant: 'standard',
+        variant: 'outlined',
         fullWidth: true
       }
     },

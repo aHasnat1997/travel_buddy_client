@@ -31,8 +31,8 @@ function Hero() {
         <Image
           alt="icon"
           src={assets.img.vectorOne}
-          height={200}
-          width={200}
+          height={300}
+          width={300}
           className="opacity-50"
         />
       </Box>
@@ -48,7 +48,7 @@ function Hero() {
       <Container>
         <Stack height='85vh' alignItems='center' position='relative'>
           <Stack alignItems='start' width='50%' direction='column' gap='1rem'>
-            <Typography variant="h5" color='primary.main' fontWeight='bold'>
+            <Typography variant="h5" color='secondary.main' fontWeight='bold'>
               Discover New Horizons!
             </Typography>
             <Typography variant="h2" color='text.primary' fontWeight='bold'>
