@@ -12,7 +12,7 @@ export default function SearchBar() {
       <form>
         <Stack justifyContent='space-between' alignItems='center' color='secondary.main'>
           <Stack direction='column' px='1.5rem' py='1.5rem'>
-            <Typography variant="h4" fontWeight='bold'>Find your trip</Typography>
+            <Typography variant="h4" fontWeight='bold' color='secondary.main'>Find your trip</Typography>
             <Stack width='100%' gap='1rem' mt='1rem'>
               <TextField label='Search Trips' />
               <TextField label='Destination' />

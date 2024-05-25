@@ -51,10 +51,10 @@ function Hero() {
             <Typography variant="h5" color='primary.main' fontWeight='bold'>
               Discover New Horizons!
             </Typography>
-            <Typography variant="h2" color='#2b2945' fontWeight='bold'>
+            <Typography variant="h2" color='text.primary' fontWeight='bold'>
               Let&apos;s Make Your best trip Ever!
             </Typography>
-            <Typography color='#88a1a3'>
+            <Typography>
               Discover amazing places at exclusive deals.
               Eat, Shop, Visit interesting places around the world.
             </Typography>
@@ -82,7 +82,7 @@ function Hero() {
               <Typography variant="h5" color='secondary.main' fontWeight='bold'>
                 WHAT WE SERVE
               </Typography>
-              <Typography variant="h2" color='#2b2945' fontWeight='bold' textAlign='right' mr='15rem'>
+              <Typography variant="h2" color='text.primary' fontWeight='bold' textAlign='right' mr='15rem'>
                 TOP VALUES <br /> FOR YOU!
               </Typography>
             </Box>
@@ -115,7 +115,7 @@ function Hero() {
                 <Typography textAlign='center' variant='h5' fontWeight='bold' className='text-[#2b2945] group-hover:text-primary'>
                   {service.title}
                 </Typography>
-                <Typography textAlign='center' color='#88a1a3'>{service.pera}</Typography>
+                <Typography textAlign='center'>{service.pera}</Typography>
               </Stack>)
             }
           </Stack>

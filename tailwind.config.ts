@@ -19,7 +19,7 @@ const config: Config = {
       },
       animation: {
         'spin-slow': 'spin 3s linear infinite',
-        'wiggle': 'wiggle 1s ease-in-out infinite',
+        'wiggle': 'wiggle 3s ease-in-out infinite',
       },
       keyframes: {
         wiggle: {
