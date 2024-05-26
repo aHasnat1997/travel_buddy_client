@@ -3,12 +3,11 @@ import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { TUser } from './types';
-import { ConstUserRole } from './constant';
 
 const commonPrivateRoutes = ['/dashboard'];
 const roleBasedPrivateRoutes = {
   admin: '/dashboard/admin',
-  doctor: '/dashboard/doctor'
+  user: '/dashboard/user'
 };
 
 // This function can be marked `async` if using `await` inside
