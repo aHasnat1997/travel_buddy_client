@@ -1,6 +1,7 @@
 'use client';
 
 import assets from '@/assets';
+import { useUserLoginMutation } from '@/redux/api/endpoints/authApi';
 import { useAppDispatch } from '@/redux/hooks';
 import { storeUserInfo } from '@/redux/slices/authSlice';
 import { LoginUser } from '@/services/login/Login.action';
@@ -14,16 +15,18 @@ import toast from 'react-hot-toast';
 function LoginPage() {
   const router = useRouter();
   const { register, handleSubmit } = useForm();
+  const [userLogin] = useUserLoginMutation();
   const dispatch = useAppDispatch();
 
   async function formSubmit(values: any) {
     // console.log(values);
     try {
-      const userData = await LoginUser(values);
-      if (userData.success && userData.data.accessToken) {
-        dispatch(storeUserInfo(userData.data.accessToken));
+      const { data: userData } = await userLogin(values);
+      console.log(userData);
+      if (userData.success) {
+        dispatch(storeUserInfo(userData.data));
         toast.success(userData.message);
-        router.push('/');
+        router.push('/dashboard');
       }
       if (!userData.success) {
         toast.error(userData.message);

@@ -1,7 +1,7 @@
 import HomeTopBar from "@/components/Dashboard/DashboardHome/HomeTopBar";
 import { Box } from "@mui/material";
 
-function AdminDashboardPage() {
+function UserDashboardPage() {
 
   return (
     <Box>
@@ -10,4 +10,4 @@ function AdminDashboardPage() {
   );
 }
 
-export default AdminDashboardPage;
+export default UserDashboardPage;

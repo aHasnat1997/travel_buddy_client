@@ -1,8 +1,6 @@
 export type TUser = {
+  id: string
   name: string
   email: string
-  image: string
-  role: 'SUPER_ADMIN' | 'ADMIN' | 'DOCTOR' | 'PATIENT'
-  iat: number
-  exp: number
+  role: 'SUPER_ADMIN' | 'ADMIN' | 'USER'
 };

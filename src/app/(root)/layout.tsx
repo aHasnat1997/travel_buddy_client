@@ -1,3 +1,4 @@
+import Footer from "@/components/MainFooter";
 import MainNav from "@/components/MainNav";
 
 export default function RootLayout({
@@ -7,10 +8,11 @@ export default function RootLayout({
 }) {
   return (
     <main className="relative">
-      <div className="w-full absolute top-0 z-50">
+      <div>
         <MainNav />
       </div>
       {children}
+      <Footer />
     </main>
   )
 };

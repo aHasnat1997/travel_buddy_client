@@ -10,26 +10,24 @@ function DrawerList() {
   const pathname = usePathname();
 
   return (
-    <Box sx={{ width: '100%', height: '100%', bgcolor: 'secondary.main', color: 'white' }}>
-      {/* <Toolbar /> */}
+    <Box sx={{ width: '100%', height: '100%', bgcolor: '#b1f3dd', color: 'white' }}>
       <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
         <Link href='/' className="m-4">
           <Image
             alt="Logo"
-            src={assets.img.logoW}
-            height={150}
-            width={150}
+            src={assets.img.logo}
+            height={200}
+            width={200}
           />
         </Link>
       </Box>
-      {/* <Divider /> */}
       <List>
         {DrawerListItems().map((list, i) => (
           <Link
             key={i}
             href={list.path}
           >
-            <ListItem disablePadding className={list.path === pathname ? 'bg-primary/5' : ''}>
+            <ListItem disablePadding className={list.path === pathname ? 'bg-primary/20' : ''}>
               <Box
                 sx={
                   list.path === pathname ?

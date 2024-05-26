@@ -9,6 +9,9 @@ const theme = createTheme({
     },
     secondary: {
       main: '#ff8900'
+    },
+    text: {
+      primary: '#2b2945'
     }
   },
   components: {
@@ -43,10 +46,15 @@ const theme = createTheme({
         variant: 'outlined',
         fullWidth: true
       }
+    },
+    MuiTypography: {
+      defaultProps: {
+        color: '#5f7172'
+      }
     }
   },
   typography: {
-    fontFamily: ['Nunito', 'sans'].join(',')
+    fontFamily: ['Poppins', 'sans-serif'].join(','),
   }
 });
 
