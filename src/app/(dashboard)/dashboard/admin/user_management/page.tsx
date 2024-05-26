@@ -1,8 +1,8 @@
 
-export default function PatientsPage() {
+export default function UserManagementPage() {
   return (
     <div>
-      Patients Page
+      User Management Page
     </div>
   );
 };
