@@ -4,12 +4,12 @@ import { jwtDecode } from "jwt-decode";
 
 type TInitialState = {
   token: null | string;
-  userInfo: null | TUser;
+  user: null | TUser;
 };
 
 const initialState: TInitialState = {
   token: null,
-  userInfo: null
+  user: null
 }
 
 export const authSlice = createSlice({
@@ -17,13 +17,13 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     storeUserInfo: (state, action) => {
-      const decodeUserData = jwtDecode(action.payload);
-      state.token = action.payload;
-      state.userInfo = decodeUserData as TUser;
+      // const decodeUserData = jwtDecode(action.payload);
+      state.token = action.payload.token;
+      state.user = action.payload.user;
     },
     removeUserInfo: (state) => {
       state.token = null;
-      state.userInfo = null;
+      state.user = null;
     }
   }
 });

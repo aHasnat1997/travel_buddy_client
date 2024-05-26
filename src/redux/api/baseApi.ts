@@ -6,7 +6,7 @@ export const baseApi = createApi({
   reducerPath: 'baseApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3030/api' }),
   endpoints: () => ({}),
-  tagTypes: ['trip']
+  tagTypes: ['trip', 'auth']
 });
 
 // Export hooks for usage in functional components, which are

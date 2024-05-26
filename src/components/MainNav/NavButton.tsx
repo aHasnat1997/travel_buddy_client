@@ -11,7 +11,7 @@ import { TUser } from "@/types";
 function NavButton() {
   const router = useRouter();
   const [currentStoredUser, setCurrentStoredUser] = useState<TUser | null>(null);
-  const storedUser = useAppSelector((state: RootState) => state.auth.userInfo);
+  const storedUser = useAppSelector((state: RootState) => state.auth.user);
   useEffect(() => {
     setCurrentStoredUser(storedUser);
   }, [storedUser]);
@@ -24,16 +24,9 @@ function NavButton() {
         currentStoredUser ?
           <Box>
             <Link href='/dashboard'>
-              {
-                currentStoredUser?.image ?
-                  <Avatar
-                    alt="User Profile"
-                    src={currentStoredUser?.image}
-                  /> :
-                  <Avatar sx={{ bgcolor: 'primary.main' }}>
-                    {userNameIcon}
-                  </Avatar>
-              }
+              <Avatar sx={{ bgcolor: 'primary.main' }}>
+                {userNameIcon}
+              </Avatar>
             </Link>
           </Box> :
           <Button
