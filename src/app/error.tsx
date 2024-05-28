@@ -1,7 +1,7 @@
 'use client';
 
 import ErrorAnimations from '@/components/LottieAnimations/ErrorAnimations';
-import { Button } from '@mui/material';
+import { Button, Stack } from '@mui/material';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
@@ -23,7 +23,7 @@ export default function Error({
       <div className='flex flex-col items-center gap-4'>
         <ErrorAnimations />
         <h2 className='text-2xl font-semibold'>{error.message}</h2>
-        <div>
+        <Stack gap={2}>
           <Button
             onClick={() => router.push('/')}
           >
@@ -31,11 +31,11 @@ export default function Error({
           </Button>
           <Button
             onClick={() => reset()}
-            variant='outlined'
+            variant='contained'
           >
             Try again
           </Button>
-        </div>
+        </Stack>
       </div>
     </section>
   )

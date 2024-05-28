@@ -15,7 +15,7 @@ function RegisterPage() {
   const router = useRouter();
   const { register, handleSubmit } = useForm();
   const [userRegister] = useUserRegisterMutation();
-  const [userLogin] = useUserLoginMutation();
+  const [userLogin, { isLoading, isSuccess }] = useUserLoginMutation();
   const dispatch = useAppDispatch();
 
   async function formSubmit(values: any) {
@@ -66,7 +66,9 @@ function RegisterPage() {
                 <TextField label='Email' required={true} {...register('email')} />
                 <TextField label='Password' required={true} type='password' {...register('password')} />
               </Stack>
-              <Button className='w-full' type='submit'>Register</Button>
+              {
+                <Button className='w-full' type='submit' disabled={isLoading || isSuccess}> {!isLoading ? 'Register' : 'Loading...'} </Button>
+              }
               <h4 className="mt-4 text-center">Already have an account?
                 <Link href='/login' className="text-primary"> Click for Login</Link></h4>
             </form>

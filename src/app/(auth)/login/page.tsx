@@ -15,7 +15,7 @@ import toast from 'react-hot-toast';
 function LoginPage() {
   const router = useRouter();
   const { register, handleSubmit } = useForm();
-  const [userLogin] = useUserLoginMutation();
+  const [userLogin, { isLoading, isSuccess }] = useUserLoginMutation();
   const dispatch = useAppDispatch();
 
   async function formSubmit(values: any) {
@@ -31,7 +31,8 @@ function LoginPage() {
       if (!userData.success) {
         toast.error(userData.message);
       }
-    } catch (error) {
+    } catch (error: any) {
+      toast.error(error.message);
       console.error(error)
     }
   };
@@ -62,7 +63,9 @@ function LoginPage() {
                   <Link href='/login'>Forgot Password?</Link>
                 </h4>
               </Stack>
-              <Button className='w-full' type='submit'>Login</Button>
+              {
+                <Button className='w-full' type='submit' disabled={isLoading || isSuccess}> {!isLoading ? 'Login' : 'Loading...'} </Button>
+              }
               <h4 className='mt-4 text-center'>Don&apos;t have an account?
                 <Link href='/register' className='text-primary'> Click for Register</Link></h4>
             </form>
