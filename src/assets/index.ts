@@ -13,7 +13,8 @@ const assets = {
     vectorFive: require('./img/vector6.png'),
     serviceOne: require('./img/serve-icon1.png'),
     serviceTwo: require('./img/serve-icon2.png'),
-    serviceThree: require('./img/serve-icon3.png')
+    serviceThree: require('./img/serve-icon3.png'),
+    popularDestinationImg: require('./img/popular-destination-img.jpg'),
   },
   animations: {
     notFound: require('./animation/animation-1.json'),
