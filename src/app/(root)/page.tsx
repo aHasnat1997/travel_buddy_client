@@ -1,5 +1,5 @@
-import Hero from "@/components/Hero";
 import { Box } from "@mui/material";
+import Hero from "./components/Hero";
 
 function Home() {
   return (
