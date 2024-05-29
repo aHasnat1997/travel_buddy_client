@@ -1,29 +1,39 @@
-import { Box, Stack, TextField, Typography } from "@mui/material";
+import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 
 export default function SearchBar() {
   return (
     <Box
       width='100%'
-      borderRadius='.5rem'
-      overflow='hidden'
-      bgcolor='#fff9f2'
     >
       <form>
-        <Stack justifyContent='space-between' alignItems='center' color='secondary.main'>
-          <Stack direction='column' px='1.5rem' py='1.5rem'>
-            <Typography variant="h4" fontWeight='bold' color='secondary.main'>Find your trip</Typography>
+        <Stack direction='column' alignItems='center'>
+          <Stack
+            direction='column'
+            px='1.5rem'
+            pt='1.5rem'
+            pb='2rem'
+            bgcolor='#fff9f2'
+            borderRadius='.5rem'
+          >
+            <Typography
+              variant="h4"
+              fontWeight='bold'
+              color='secondary.main'
+              sx={{ fontSize: { xs: '1rem', sm: '2rem' } }}
+            >
+              Find your trip
+            </Typography>
             <Stack width='100%' gap='1rem' mt='1rem'>
-              <TextField label='Search Trips' />
-              <TextField label='Destination' />
-              <TextField label='Duration' />
+              <TextField label='Search Trips' sx={{ fontSize: { xs: '.5rem', sm: '2rem' } }} />
+              <TextField label='Destination' sx={{ fontSize: { xs: '.5rem', sm: '2rem' } }} />
+              <TextField label='Duration' sx={{ fontSize: { xs: '.5rem', sm: '2rem' } }} />
             </Stack>
           </Stack>
-          <Box
-            bgcolor='secondary.main'
-            sx={{ cursor: 'pointer' }}
-          >
-            <SearchIcon className="mx-8 my-14 text-white size-12" />
+          <Box mt='-1rem'>
+            <Button startIcon={<SearchIcon />}>
+              Search
+            </Button>
           </Box>
         </Stack>
       </form>
