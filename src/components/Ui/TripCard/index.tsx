@@ -17,7 +17,7 @@ type TCardProps = {
 export default function TripCard({ cardProps }: { cardProps: TCardProps }) {
   return (
     <Card sx={{
-      maxWidth: '24rem',
+      width: '100%',
       p: '1rem',
       borderRadius: '1rem',
       '&:hover': {
@@ -38,7 +38,7 @@ export default function TripCard({ cardProps }: { cardProps: TCardProps }) {
         alt="trip background image"
         placeholder='blur'
         blurDataURL='https://img.freepik.com/free-vector/gray-soft-blurred-background_1034-272.jpg?w=826&t=st=1717064690~exp=1717065290~hmac=9cb3c63aa957a46be36d8be48ccaa82a014bb0fe43049970a794fa669ad51981'
-        className='rounded-2xl my-6'
+        className='w-full rounded-2xl my-6'
       />
       <Box mt='.5rem'>
         <Stack gap='1.5rem'>
