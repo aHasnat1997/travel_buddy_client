@@ -15,7 +15,9 @@ const assets = {
     serviceTwo: require('./img/serve-icon2.png'),
     serviceThree: require('./img/serve-icon3.png'),
     popularDestinationImg: require('./img/popular-destination-img.jpg'),
-    cardBlurImage: require('./img/cardBlurImage.jpg')
+    cardBlurImage: require('./img/cardBlurImage.jpg'),
+    aboutOne: require('./img/about-travel-img1.jpg'),
+    aboutTwo: require('./img/about-travel-img2.jpg'),
   },
   animations: {
     notFound: require('./animation/animation-1.json'),
