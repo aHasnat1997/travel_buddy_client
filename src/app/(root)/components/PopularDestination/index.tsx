@@ -1,4 +1,4 @@
-import { Box, Container, Stack, Typography } from "@mui/material";
+import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 import style from './index.module.css';
 import Image from "next/image";
 import TripCard from "@/components/Ui/TripCard";
@@ -8,17 +8,26 @@ function PopularDestination() {
     {
       title: 'Trip title one',
       image: 'https://html.designingmedia.com/traveltrek/assets/images/package-box-img3.jpg',
-      price: 399.99
+      price: 399.99,
+      destination: 'Los Angeles',
+      places: '5',
+      duration: '1'
     },
     {
       title: 'Trip title two',
       image: 'https://html.designingmedia.com/traveltrek/assets/images/package-box-img2.jpg',
-      price: 499.99
+      price: 499.99,
+      destination: 'Los Angeles',
+      places: '5',
+      duration: '3'
     },
     {
       title: 'Trip title three',
       image: 'https://html.designingmedia.com/traveltrek/assets/images/package-box-img1.jpg',
-      price: 799.99
+      price: 799.99,
+      destination: 'Los Angeles',
+      places: '5',
+      duration: '6'
     },
   ];
 
@@ -34,13 +43,13 @@ function PopularDestination() {
           </Typography>
         </Stack>
 
-        <Stack mt='4rem' gap='1rem'>
+        <Grid container mt='4rem' gap='1rem' justifyContent='center'>
           {
-            tripData.map((trip, i) => <Box key={i}>
-              <TripCard backgroundImage={trip.image} />
-            </Box>)
+            tripData.map((trip, i) => <Grid item key={i} xs={12} md={3}>
+              <TripCard cardProps={trip} />
+            </Grid>)
           }
-        </Stack>
+        </Grid>
       </Container>
     </section>
   );
