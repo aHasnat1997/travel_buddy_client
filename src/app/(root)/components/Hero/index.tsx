@@ -50,39 +50,42 @@ function Hero() {
             />
           </div>
         </Box>
-        <Box position='relative' sx={{
-          height: { xs: '', sm: '85vh' },
-          display: 'flex',
-          flexDirection: { xs: 'column-reverse', sm: 'row' },
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-          <Stack alignItems='start' direction='column' gap='1rem' sx={{ width: { xs: '100%', sm: '50%' } }}>
-            <Typography variant="h5" color='secondary.main' fontWeight='bold' sx={{ fontSize: { xs: '1.2rem', sm: '1.6rem' } }}>
-              Discover New Horizons!
-            </Typography>
-            <Typography variant="h2" color='text.primary' fontWeight='bold' sx={{ fontSize: { xs: '2.5rem', sm: '3rem' } }}>
-              Let&apos;s Make Your best trip Ever!
-            </Typography>
-            <Typography>
-              Discover amazing places at exclusive deals.
-              Eat, Shop, Visit interesting places around the world.
-            </Typography>
-          </Stack>
-          <Box sx={{ width: { xs: '100%', sm: '50%' } }}>
-            <Image
-              alt="Banner Image"
-              src={assets.img.heroImg}
-              height={1500}
-              width={1500}
-              className="my-8 md:my-0"
-            />
+        <Box position='relative'>
+          <Box sx={{
+            height: { xs: '', sm: '85vh' },
+            display: 'flex',
+            flexDirection: { xs: 'column-reverse', sm: 'row' },
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+            <Stack alignItems='start' direction='column' gap='1rem' sx={{ width: { xs: '100%', sm: '50%' } }}>
+              <Typography variant="h5" color='secondary.main' fontWeight='bold' sx={{ fontSize: { xs: '1.2rem', sm: '1.6rem' } }}>
+                Discover New Horizons!
+              </Typography>
+              <Typography variant="h2" color='text.primary' fontWeight='bold' sx={{ fontSize: { xs: '2.5rem', sm: '3rem' } }}>
+                Let&apos;s Make Your best trip Ever!
+              </Typography>
+              <Typography>
+                Discover amazing places at exclusive deals.
+                Eat, Shop, Visit interesting places around the world.
+              </Typography>
+            </Stack>
+            <Box sx={{ width: { xs: '100%', sm: '50%' } }}>
+              <Image
+                alt="Banner Image"
+                src={assets.img.heroImg}
+                height={1500}
+                width={1500}
+                className="my-8 md:my-0"
+              />
+            </Box>
           </Box>
           <Box
             sx={{
               width: { xs: '100%', sm: '70%' },
-              position: 'absolute',
-              bottom: { xs: '15rem', sm: '0' },
+              position: { xs: 'static', sm: 'absolute' },
+              bottom: { xs: '0', sm: '5rem' },
+              mt: { xs: '2rem', sm: '0' }
             }}
           >
             <div data-aos="fade-up">

@@ -1,6 +1,6 @@
 'use client';
 
-import { Avatar, Box, Button } from "@mui/material";
+import { Avatar, Box, Button, IconButton, Typography } from "@mui/material";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useAppSelector } from "@/redux/hooks";
@@ -22,18 +22,17 @@ function NavButton() {
     <Box>
       {
         currentStoredUser ?
-          <Box>
-            <Link href='/dashboard'>
+          <Link href='/dashboard'>
+            <IconButton sx={{}}>
               <Avatar sx={{ bgcolor: 'primary.main' }}>
                 {userNameIcon}
               </Avatar>
-            </Link>
-          </Box> :
+            </IconButton>
+          </Link> :
           <Button
-            variant="outlined"
             color="secondary"
             onClick={() => router.push('/login')}
-            sx={{ color: 'secondary.main' }}
+            sx={{ color: '#fff' }}
           >
             Login
           </Button>

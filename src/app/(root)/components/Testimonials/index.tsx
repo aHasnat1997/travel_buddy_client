@@ -11,7 +11,11 @@ function Testimonials() {
       background: 'linear-gradient(to top,  #b1f3dd, #1ec28b17)',
     }}>
       <Container>
-        <Stack width='100%' justifyContent='space-between'>
+        <Box width='100%' sx={{
+          display: { xs: 'block', md: 'flex' },
+          flexDirection: { xs: 'column', md: 'row' },
+          justifyContent: 'space-between'
+        }}>
           <Box sx={{
             width: { xs: '0', sm: '30%' },
             display: { xs: 'none', sm: 'block' }
@@ -39,7 +43,7 @@ function Testimonials() {
               What Our Customers Are Saying About Us
             </Typography>
           </Box>
-        </Stack>
+        </Box>
         <Box mt='3rem' position='relative'>
           <TestimonialsCarousel />
         </Box>

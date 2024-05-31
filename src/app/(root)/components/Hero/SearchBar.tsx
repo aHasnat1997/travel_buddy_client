@@ -9,6 +9,7 @@ export default function SearchBar() {
       <form>
         <Stack direction='column' alignItems='center'>
           <Stack
+            width='100%'
             direction='column'
             px='1.5rem'
             pt='1.5rem'
@@ -24,7 +25,9 @@ export default function SearchBar() {
             >
               Find your trip
             </Typography>
-            <Stack width='100%' gap='1rem' mt='1rem'>
+            <Stack width='100%' gap='1rem' mt='1rem' sx={{
+              flexDirection: { xs: 'column', sm: 'row' }
+            }}>
               <TextField label='Search Trips' sx={{ fontSize: { xs: '.5rem', sm: '2rem' } }} />
               <TextField label='Destination' sx={{ fontSize: { xs: '.5rem', sm: '2rem' } }} />
               <TextField label='Duration' sx={{ fontSize: { xs: '.5rem', sm: '2rem' } }} />
