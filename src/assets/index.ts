@@ -1,9 +1,7 @@
 const assets = {
   img: {
     logo: require('./img/logo.png'),
-    logoW: require('./img/logo-w.png'),
     heroImg: require('./img/home-banner-image.png'),
-    heroImgShape: require('./img/hero-shape.png'),
     loginImg: require('./img/login-bg.jpg'),
     registerImg: require('./img/reg-bg.jpg'),
     vectorOne: require('./img/vector1.png'),

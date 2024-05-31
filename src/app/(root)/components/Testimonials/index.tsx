@@ -38,7 +38,7 @@ function Testimonials() {
             </Typography>
           </Box>
         </Stack>
-        <Box mt='3rem'>
+        <Box mt='3rem' position='relative'>
           <TestimonialsCarousel />
         </Box>
       </Container>

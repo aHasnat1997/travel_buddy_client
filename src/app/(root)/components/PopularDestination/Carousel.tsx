@@ -7,11 +7,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import 'swiper/css/effect-coverflow';
 
 // import required modules
-import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
+import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 import TripCard from '@/components/Ui/TripCard';
+import { Box, IconButton, Stack } from '@mui/material';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 type TCardProps = {
   title: string;
@@ -24,11 +26,41 @@ type TCardProps = {
 export default function Carousel({ tripsData }: { tripsData: TCardProps[] }) {
   return (
     <>
+      <Stack justifyContent='space-between' alignItems='center'>
+        <Box position='absolute' zIndex='2' left='0'>
+          <IconButton id='prev' color='secondary' sx={{
+            color: '#fff',
+            bgcolor: 'primary.main',
+            padding: '1rem',
+            '&:hover': {
+              bgcolor: 'secondary.main'
+            }
+          }}>
+            <ArrowBackIcon />
+          </IconButton>
+        </Box>
+        <Box position='absolute' zIndex='2' right='0'>
+          <IconButton id='next' color='secondary' sx={{
+            color: '#fff',
+            bgcolor: 'primary.main',
+            padding: '1rem',
+            '&:hover': {
+              bgcolor: 'secondary.main'
+            }
+          }}>
+            <ArrowForwardIcon />
+          </IconButton>
+        </Box>
+      </Stack>
       <Swiper
         effect={"coverflow"}
         grabCursor={true}
         centeredSlides={true}
         loop={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
         breakpoints={{
           640: {
             slidesPerView: 1,
@@ -47,13 +79,18 @@ export default function Carousel({ tripsData }: { tripsData: TCardProps[] }) {
           modifier: 1,
         }}
         pagination={true}
-        navigation={true}
-        modules={[EffectCoverflow, Pagination, Navigation]}
+        navigation={{
+          prevEl: '#prev',
+          nextEl: '#next',
+        }}
+        modules={[Pagination, Navigation, Autoplay]}
         className="bg-transparent"
       >
         {
           tripsData.map((trip, i) => <SwiperSlide key={i} className='my-12'>
-            <TripCard cardProps={trip} />
+            <Box mx='1rem'>
+              <TripCard cardProps={trip} />
+            </Box>
           </SwiperSlide>)
         }
       </Swiper>

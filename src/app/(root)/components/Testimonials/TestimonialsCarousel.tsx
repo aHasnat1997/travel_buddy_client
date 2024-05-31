@@ -9,8 +9,10 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Navigation, Autoplay } from 'swiper/modules';
-import { Box, Stack, Typography } from '@mui/material';
+import { Box, IconButton, Stack, Typography } from '@mui/material';
 import Image from 'next/image';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 export default function TestimonialsCarousel() {
   const userReviews = [
@@ -48,6 +50,32 @@ export default function TestimonialsCarousel() {
 
   return (
     <>
+      <Stack justifyContent='space-between' alignItems='center'>
+        <Box position='absolute' zIndex='2' left='0'>
+          <IconButton id='prev' color='secondary' sx={{
+            color: '#fff',
+            bgcolor: 'primary.main',
+            padding: '1rem',
+            '&:hover': {
+              bgcolor: 'secondary.main'
+            }
+          }}>
+            <ArrowBackIcon />
+          </IconButton>
+        </Box>
+        <Box position='absolute' zIndex='2' right='0'>
+          <IconButton id='next' color='secondary' sx={{
+            color: '#fff',
+            bgcolor: 'primary.main',
+            padding: '1rem',
+            '&:hover': {
+              bgcolor: 'secondary.main'
+            }
+          }}>
+            <ArrowForwardIcon />
+          </IconButton>
+        </Box>
+      </Stack>
       <Swiper
         effect={"coverflow"}
         grabCursor={true}
@@ -75,7 +103,10 @@ export default function TestimonialsCarousel() {
           modifier: 1,
         }}
         pagination={true}
-        navigation={true}
+        navigation={{
+          prevEl: '#prev',
+          nextEl: '#next',
+        }}
         modules={[Navigation, Autoplay]}
         className="bg-transparent"
       >

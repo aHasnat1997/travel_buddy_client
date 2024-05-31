@@ -68,7 +68,7 @@ function PopularDestination() {
           </Typography>
         </Stack>
 
-        <Stack justifyContent='center' mt='2rem'>
+        <Stack justifyContent='center' mt='2rem' position='relative'>
           <Carousel tripsData={tripData} />
         </Stack>
       </Container>
