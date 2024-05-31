@@ -39,22 +39,26 @@ function About() {
         position: 'relative'
       }}>
         <Box sx={{ position: 'absolute', top: '-5rem', right: { xs: '35%', sm: '70%', md: '1rem' } }}>
-          <Image
-            alt="icon"
-            src={assets.img.vectorOne}
-            height={300}
-            width={300}
-            className="opacity-50 w-56"
-          />
+          <div data-aos="fade-right">
+            <Image
+              alt="icon"
+              src={assets.img.vectorOne}
+              height={300}
+              width={300}
+              className="opacity-50 w-56"
+            />
+          </div>
         </Box>
         <Box sx={{ position: 'absolute', bottom: { xs: '-4rem', md: '-8rem' }, left: { xs: '50%', sm: '60%', md: '1rem' } }}>
-          <Image
-            alt="icon"
-            src={assets.img.vectorTwo}
-            height={150}
-            width={150}
-            className="opacity-50 animate-wiggle"
-          />
+          <div data-aos="fade-down">
+            <Image
+              alt="icon"
+              src={assets.img.vectorTwo}
+              height={150}
+              width={150}
+              className="opacity-50 animate-wiggle"
+            />
+          </div>
         </Box>
         <Box sx={{
           width: { xs: '100%', md: '40%' },

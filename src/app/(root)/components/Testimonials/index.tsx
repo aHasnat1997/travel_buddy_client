@@ -16,12 +16,14 @@ function Testimonials() {
             width: { xs: '0', sm: '30%' },
             display: { xs: 'none', sm: 'block' }
           }}>
-            <Image
-              alt="Icon"
-              src={assets.img.vectorFour}
-              width={1000}
-              height={1000}
-            />
+            <div data-aos="fade-right">
+              <Image
+                alt="Icon"
+                src={assets.img.vectorFour}
+                width={1000}
+                height={1000}
+              />
+            </div>
           </Box>
           <Box sx={{ width: { xs: '100%', sm: '70%' } }}>
             <Typography variant="h5" color='secondary.main' fontWeight='bold' sx={{
