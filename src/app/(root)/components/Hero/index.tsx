@@ -28,13 +28,13 @@ function Hero() {
       width: '100%'
     }}>
       <Container sx={{ position: 'relative' }}>
-        <Box position='absolute' left='4rem' sx={{ display: { xs: 'none', sm: 'block' } }}>
+        <Box position='absolute' left='-4rem' sx={{ display: { xs: 'none', sm: 'block' } }}>
           <Image
             alt="icon"
             src={assets.img.vectorOne}
             height={300}
             width={300}
-            className="opacity-50 size-40 lg:size-52"
+            className="opacity-50 w-40 lg:w-80"
           />
         </Box>
         <Box position='absolute' right='4rem' top='5rem' sx={{ display: { xs: 'none', sm: 'block' } }}>

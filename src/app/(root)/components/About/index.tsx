@@ -25,7 +25,6 @@ function About() {
     },
   ];
 
-
   return (
     <Box sx={{
       pt: '5rem',
@@ -36,13 +35,34 @@ function About() {
       <Container sx={{
         display: 'flex',
         flexDirection: { xs: 'column', md: 'row' },
-        gap: '5rem'
+        gap: '5rem',
+        position: 'relative'
       }}>
+        <Box sx={{ position: 'absolute', top: '-5rem', right: { xs: '35%', sm: '70%', md: '1rem' } }}>
+          <Image
+            alt="icon"
+            src={assets.img.vectorOne}
+            height={300}
+            width={300}
+            className="opacity-50 w-56"
+          />
+        </Box>
+        <Box sx={{ position: 'absolute', bottom: { xs: '-4rem', md: '-8rem' }, left: { xs: '50%', sm: '60%', md: '1rem' } }}>
+          <Image
+            alt="icon"
+            src={assets.img.vectorTwo}
+            height={150}
+            width={150}
+            className="opacity-50 animate-wiggle"
+          />
+        </Box>
         <Box sx={{
           width: { xs: '100%', md: '40%' },
         }} >
           <Box position='relative'>
-            <Box bgcolor='#fff' p='.8rem' borderRadius='1rem' boxShadow='5px 5px 25px #1ec28b'>
+            <Box bgcolor='#fff' p='.8rem' borderRadius='1rem' boxShadow='5px 5px 25px #1ec28b' sx={{
+              display: { xs: 'none', md: 'block' }
+            }}>
               <Image
                 alt="about image"
                 src={assets.img.aboutOne}
