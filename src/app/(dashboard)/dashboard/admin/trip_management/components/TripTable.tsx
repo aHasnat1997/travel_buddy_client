@@ -28,6 +28,11 @@ export default function TripTable() {
 
   const tableColumns: GridColDef<Record<string, any>>[] = [
     {
+      field: 'tripTitle',
+      headerName: 'Trip Title',
+      flex: 1
+    },
+    {
       field: 'destination',
       headerName: 'Destination',
       flex: 1
@@ -55,15 +60,15 @@ export default function TripTable() {
       flex: 1
     },
     {
-      field: 'capacity',
-      headerName: 'Capacity',
+      field: 'totalSlots',
+      headerName: 'Total Slots',
       flex: 1
     },
-    // {
-    //   field: 'creator.user.name',
-    //   headerName: 'Creator',
-    //   flex: 1
-    // }
+    {
+      field: 'totalBooked',
+      headerName: 'Total Booked',
+      flex: 1
+    },
   ];
 
   if (isLoading) {
