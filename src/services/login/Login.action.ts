@@ -11,14 +11,6 @@ export async function LoginUser(payload: { email: string, password: string }) {
     credentials: 'include'
   });
   const result = await res.json();
-  // console.log(result);
-
-  // cookies().set({
-  //   name: 'access_token',
-  //   value: result?.data?.accessToken,
-  //   secure: true,
-  //   httpOnly: true
-  // });
 
   return result;
 };

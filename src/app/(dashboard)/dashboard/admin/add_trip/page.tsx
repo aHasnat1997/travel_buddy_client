@@ -10,16 +10,12 @@ import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import CloseIcon from '@mui/icons-material/Close';
 import { z } from "zod";
-
-import {
-  Form,
-  FormItem,
-  FormControl,
-  FormMessage,
-  FormField,
-} from "@/components/Ui/Form"; // Adjust the import path as necessary
+import { Form, FormItem, FormControl, FormMessage, FormField } from "@/components/Ui/Form";
 import Image from "next/image";
 import { imageUpload } from "@/utils/imageUpload";
+import { usePostTripMutation, useUpdateTripMutation } from "@/redux/api/endpoints/tripApi";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 // Define the schema using zod
 const schema = z.object({
@@ -41,6 +37,9 @@ const AddTripPage: React.FC = () => {
   const [startDate, setStartDate] = useState<Dayjs | null>(null);
   const [endDate, setEndDate] = useState<Dayjs | null>(null);
   const [images, setImages] = useState<any[]>([]);
+  const [tripData, { isLoading: isTripDataLoading, isSuccess: isTripDataSuccess }] = usePostTripMutation();
+  const [updateTripData, { isLoading: isTripUpdateLoading, isSuccess: isTripUpdateSuccess }] = useUpdateTripMutation();
+  const router = useRouter();
   // console.log({ images });
 
   const methods = useForm<FormValues>();
@@ -72,33 +71,34 @@ const AddTripPage: React.FC = () => {
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
       schema.parse(data);
-      // console.log(data);
-      const imageUrls: string[] = [];
-
-      for (const image of images) {
-        const res = await imageUpload(image);
-        imageUrls.push(res);
-      }
+      const activitiesArray = data.activities.split(',');
 
       const tripReqData = {
         ...data,
-        tripImage: imageUrls
+        budget: Number(data.budget),
+        totalSlots: Number(data.totalSlots),
+        activities: activitiesArray,
+        startDate: new Date(data?.startDate!).toISOString(),
+        endDate: new Date(data?.endDate!).toISOString(),
+      };
+
+      const { data: tripResData } = await tripData(tripReqData);
+      if (tripResData.success) {
+        const imageUrls: string[] = [];
+        for (const image of images) {
+          const res = await imageUpload(image);
+          imageUrls.push(res);
+        };
+        await updateTripData({ tripId: tripResData.data.id, data: { tripImage: imageUrls } });
+
+        router.push('/dashboard/admin/trip_management');
+        toast.success(tripResData.message);
       }
-
-      console.log('page======>', tripReqData);
-
-
-
-
-    } catch (e) {
-      if (e instanceof z.ZodError) {
-        e.errors.forEach((error) => {
-          methods.setError(error.path[0] as keyof FormValues, {
-            type: "manual",
-            message: error.message,
-          });
-        });
+      if (!tripResData.success) {
+        toast.error(tripResData.message);
       }
+    } catch (e: any) {
+      toast.error(e.message);
     }
   };
 
@@ -297,7 +297,7 @@ const AddTripPage: React.FC = () => {
             </Grid>
           </Stack>
 
-          <Button type="submit" variant="contained" color="primary">
+          <Button type="submit" variant="contained" color="primary" disabled={isTripDataLoading || isTripDataSuccess}>
             Submit
           </Button>
         </Box>

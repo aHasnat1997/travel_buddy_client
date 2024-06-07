@@ -4,7 +4,6 @@ import assets from '@/assets';
 import { useUserLoginMutation } from '@/redux/api/endpoints/authApi';
 import { useAppDispatch } from '@/redux/hooks';
 import { storeUserInfo } from '@/redux/slices/authSlice';
-import { LoginUser } from '@/services/login/Login.action';
 import { Box, Button, Stack, TextField } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -19,10 +18,8 @@ function LoginPage() {
   const dispatch = useAppDispatch();
 
   async function formSubmit(values: any) {
-    // console.log(values);
     try {
       const { data: userData } = await userLogin(values);
-      console.log(userData);
       if (userData.success) {
         dispatch(storeUserInfo(userData.data));
         toast.success(userData.message);

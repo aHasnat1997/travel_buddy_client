@@ -28,7 +28,7 @@ export default function HomeTopBar() {
           Hello, {(currentStoredUser?.name as string)[0].toUpperCase() + (currentStoredUser?.name as string).substring(1)}
         </span>
       </Typography>
-      <Typography>Welcome To, Health Care System</Typography>
+      <Typography>Welcome To, Your next travel buddy.</Typography>
     </Box> : <></>
   );
 };

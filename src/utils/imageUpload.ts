@@ -1,6 +1,5 @@
 export const imageUpload = async (files: File) => {
   if (!files) return;
-  // console.log({ files });
 
   let data = new FormData();
   data.append("file", files);
@@ -11,6 +10,5 @@ export const imageUpload = async (files: File) => {
     body: data,
   });
   const imageResponse = await res.json();
-  // console.log(imageResponse);
   return imageResponse.uploadedImageData.secure_url;
 };
