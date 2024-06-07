@@ -27,7 +27,6 @@ function RegisterPage() {
         address: ''
       }
     };
-    console.log(data);
     const loginUserData = {
       email: values.email,
       password: values.password
@@ -35,10 +34,8 @@ function RegisterPage() {
 
     try {
       const { data: userData } = await userRegister(data);
-      console.log(userData);
       if (userData.success) {
         const { data: loginData } = await userLogin(loginUserData);
-        console.log(loginData);
         dispatch(storeUserInfo(loginData.data));
         toast.success(userData.message);
         router.push('/dashboard');

@@ -40,7 +40,6 @@ const AddTripPage: React.FC = () => {
   const [tripData, { isLoading: isTripDataLoading, isSuccess: isTripDataSuccess }] = usePostTripMutation();
   const [updateTripData, { isLoading: isTripUpdateLoading, isSuccess: isTripUpdateSuccess }] = useUpdateTripMutation();
   const router = useRouter();
-  // console.log({ images });
 
   const methods = useForm<FormValues>();
 
