@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from "react";
-import { Box, Button, Grid, Stack, Typography, styled } from "@mui/material";
+import { Box, Button, Grid, Stack, Tooltip, Typography, styled } from "@mui/material";
 import { Dayjs } from 'dayjs';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -233,7 +233,9 @@ const AddTripPage: React.FC = () => {
                     name="activities"
                     control={methods.control}
                     render={({ field }) => (
-                      <FormControl {...field} label="Activities" />
+                      <Tooltip title="add ( , ) <comma> for divide between activities" placement="top-start">
+                        <FormControl {...field} label="Activities" />
+                      </Tooltip>
                     )}
                   />
                   <FormMessage />

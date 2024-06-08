@@ -33,18 +33,14 @@ function MainNav() {
     },
     {
       title: 'About',
-      path: '/'
+      path: '#about-section'
     },
     {
-      title: 'Department',
-      path: '/'
+      title: 'All Trips',
+      path: '/trips'
     },
     {
       title: 'Service',
-      path: '/'
-    },
-    {
-      title: 'Price',
       path: '/'
     },
     {

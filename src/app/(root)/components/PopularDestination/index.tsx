@@ -1,60 +1,20 @@
-import { Box, Container, Grid, Stack, Typography } from "@mui/material";
+import { Container, Stack, Typography } from "@mui/material";
 import style from './index.module.css';
-import Image from "next/image";
-import TripCard from "@/components/Ui/TripCard";
 import Carousel from "./Carousel";
+import { FindAllTrips } from "@/services/trips/trips.action";
+import { getWeekDifference } from "@/utils/getWeekDifference";
 
-function PopularDestination() {
-  const tripData = [
-    {
-      title: 'Trip title one',
-      image: 'https://html.designingmedia.com/traveltrek/assets/images/package-box-img3.jpg',
-      price: 399.99,
-      destination: 'Los Angeles',
-      places: '5',
-      duration: '1'
-    },
-    {
-      title: 'Trip title two',
-      image: 'https://html.designingmedia.com/traveltrek/assets/images/package-box-img2.jpg',
-      price: 499.99,
-      destination: 'Los Angeles',
-      places: '5',
-      duration: '3'
-    },
-    {
-      title: 'Trip title three',
-      image: 'https://html.designingmedia.com/traveltrek/assets/images/package-box-img1.jpg',
-      price: 799.99,
-      destination: 'Los Angeles',
-      places: '5',
-      duration: '6'
-    },
-    {
-      title: 'Trip title one',
-      image: 'https://html.designingmedia.com/traveltrek/assets/images/package-box-img3.jpg',
-      price: 399.99,
-      destination: 'Los Angeles',
-      places: '5',
-      duration: '1'
-    },
-    {
-      title: 'Trip title two',
-      image: 'https://html.designingmedia.com/traveltrek/assets/images/package-box-img2.jpg',
-      price: 499.99,
-      destination: 'Los Angeles',
-      places: '5',
-      duration: '3'
-    },
-    {
-      title: 'Trip title three',
-      image: 'https://html.designingmedia.com/traveltrek/assets/images/package-box-img1.jpg',
-      price: 799.99,
-      destination: 'Los Angeles',
-      places: '5',
-      duration: '6'
-    },
-  ];
+async function PopularDestination() {
+  const allTrips = await FindAllTrips();
+
+  const tripData = allTrips?.data?.map((trip: any) => ({
+    title: trip?.tripTitle,
+    image: trip?.tripImage[0],
+    price: trip?.budget,
+    destination: trip?.destination,
+    places: trip?.activities?.length,
+    duration: getWeekDifference(trip?.startDate, trip?.endDate)
+  }));
 
   return (
     <section className={style.backgroundImage}>

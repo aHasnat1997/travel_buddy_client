@@ -1,5 +1,6 @@
 import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
+import Link from "next/link";
 
 export default function SearchBar() {
   return (
@@ -34,9 +35,11 @@ export default function SearchBar() {
             </Stack>
           </Stack>
           <Box mt='-1rem'>
-            <Button startIcon={<SearchIcon />}>
-              Search
-            </Button>
+            <Link href='/trips'>
+              <Button startIcon={<SearchIcon />}>
+                Search
+              </Button>
+            </Link>
           </Box>
         </Stack>
       </form>
