@@ -8,6 +8,7 @@ async function PopularDestination() {
   const allTrips = await FindAllTrips();
 
   const tripData = allTrips?.data?.map((trip: any) => ({
+    id: trip?.id,
     title: trip?.tripTitle,
     image: trip?.tripImage[0],
     price: trip?.budget,

@@ -2,28 +2,11 @@
 
 import DataTable from "@/components/Ui/DataTable";
 import { useAllTripQuery } from "@/redux/api/endpoints/tripApi";
+import { dateFormate } from "@/utils/dateFormate";
 import { GridColDef } from "@mui/x-data-grid";
 
 export default function TripTable() {
   const { data: tripsData, isLoading } = useAllTripQuery(undefined);
-
-  const dateFormate = (value: string) => {
-    const dateString = value;
-    // Parse the date string into a Date object
-    const date = new Date(dateString);
-
-    // Define options for toLocaleDateString
-    const options: Intl.DateTimeFormatOptions = {
-      weekday: 'short',
-      year: 'numeric',
-      month: 'short',
-      day: '2-digit'
-    };
-
-    // Format the date
-    const formattedDate = date.toLocaleDateString('en-US', options).replace(',', '');
-    return (formattedDate);
-  }
 
 
   const tableColumns: GridColDef<Record<string, any>>[] = [

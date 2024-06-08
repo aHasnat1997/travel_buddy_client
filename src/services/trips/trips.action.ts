@@ -8,3 +8,11 @@ export async function FindAllTrips() {
   const result = await res.json();
   return result;
 };
+
+export async function FindSingleTrip(id: string) {
+  const res = await fetch(`http://localhost:3030/api/trips/${id}`, {
+    cache: 'no-store'
+  });
+  const result = await res.json();
+  return result;
+};

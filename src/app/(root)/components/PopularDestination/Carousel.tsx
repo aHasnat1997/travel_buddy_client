@@ -14,15 +14,8 @@ import TripCard from '@/components/Ui/TripCard';
 import { Box, IconButton, Stack } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { TCardProps } from '@/types';
 
-type TCardProps = {
-  title: string;
-  image: string;
-  price: number;
-  destination: string;
-  places: string;
-  duration: string;
-};
 export default function Carousel({ tripsData }: { tripsData: TCardProps[] }) {
   return (
     <>

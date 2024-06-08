@@ -9,6 +9,13 @@ export const tripApi = baseApi.injectEndpoints({
       }),
       providesTags: ['trip']
     }),
+    singleTrip: build.query({
+      query: (tripId) => ({
+        url: `/trips/${tripId}`,
+        method: 'GET'
+      }),
+      providesTags: ['trip']
+    }),
     postTrip: build.mutation({
       query: (data) => ({
         url: '/trips',
@@ -27,4 +34,4 @@ export const tripApi = baseApi.injectEndpoints({
   })
 });
 
-export const { useAllTripQuery, usePostTripMutation, useUpdateTripMutation } = tripApi;
+export const { useAllTripQuery, usePostTripMutation, useUpdateTripMutation, useSingleTripQuery } = tripApi;

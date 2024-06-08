@@ -38,7 +38,7 @@ export default function NavDrawer({ navContent }: { navContent: TNavContent[] })
 
   return (
     <Container>
-      <Stack justifyContent='space-between' py='1rem'>
+      <Stack justifyContent='space-between' alignItems='center' py='1rem'>
         <Stack>
           <Box>
             <IconButton

@@ -52,12 +52,14 @@ function MainNav() {
   const FullScreenView = () => (<Container sx={{ padding: '1rem 0' }}>
     <Stack justifyContent='space-between' alignItems='center'>
       <Box>
-        <Image
-          alt="Logo"
-          src={assets.img.logo}
-          height={120}
-          width={150}
-        />
+        <Link href='/'>
+          <Image
+            alt="Logo"
+            src={assets.img.logo}
+            height={150}
+            width={150}
+          />
+        </Link>
       </Box>
       <Stack spacing='4rem'>
         {
