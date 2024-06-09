@@ -18,6 +18,8 @@ const assets = {
     aboutTwo: require('./img/about-travel-img2.jpg'),
   },
   animations: {
+    success: require('./animation/animation-success.json'),
+    fail: require('./animation/animation-fail.json'),
     notFound: require('./animation/animation-1.json'),
     error: require('./animation/animation-2.json')
   }
