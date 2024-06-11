@@ -17,7 +17,9 @@ const GalleryCarousel = ({ images }: { images: string[] }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
 
   return (
-    <Box sx={{ position: 'relative' }}>
+    <Box sx={{
+      position: 'relative'
+    }}>
       <Stack justifyContent='space-between' alignItems='center'>
         <Box position='absolute' zIndex='2' left='0' top='30%'>
           <IconButton id='prev' color='secondary' sx={{
@@ -57,7 +59,7 @@ const GalleryCarousel = ({ images }: { images: string[] }) => {
         }}
         thumbs={{ swiper: thumbsSwiper }}
         modules={[FreeMode, Navigation, Thumbs]}
-        className='h-80 w-[40rem] mb-4'
+        className='h-80 w-full mb-4'
       >
         {
           images?.map((img, index) => (
@@ -80,7 +82,7 @@ const GalleryCarousel = ({ images }: { images: string[] }) => {
         freeMode={true}
         watchSlidesProgress={true}
         modules={[FreeMode, Navigation, Thumbs]}
-        className='h-24 w-[40rem]'
+        className='h-24 w-full'
       >
         {
           images?.map((img, index) => (

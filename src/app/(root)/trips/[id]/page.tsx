@@ -2,6 +2,7 @@ import { FindSingleTrip } from "@/services/trips/trips.action";
 import { dateFormate } from "@/utils/dateFormate";
 import { Box, Button, Container, Stack, Typography } from "@mui/material";
 import GalleryCarousel from "./component/galleryCarousel";
+import Link from "next/link";
 
 async function SingleTripPage({ params }: { params: { id: string } }) {
   const tripData = await FindSingleTrip(params.id);
@@ -13,8 +14,8 @@ async function SingleTripPage({ params }: { params: { id: string } }) {
       py: '4rem'
     }}>
       <Container>
-        <Stack gap='2rem'>
-          <Box width='100%'>
+        <Stack gap='2rem' sx={{ flexDirection: { xs: 'column', md: 'row' } }}>
+          <Box sx={{ width: { xs: '100%', md: '50%' } }}>
             <GalleryCarousel images={tripData?.data.tripImage} />
           </Box>
           <Stack width='100%' direction='column' gap='1rem'>
@@ -51,7 +52,9 @@ async function SingleTripPage({ params }: { params: { id: string } }) {
             <Typography variant="h6" fontWeight='bold' textAlign='justify'>
               Activities: {tripData?.data?.activities.join(',')}
             </Typography>
-            <Button color="secondary">Book this Trip</Button>
+            <Link href={`/payment/${params.id}`} className='w-fit'>
+              <Button color="secondary">Book this Trip</Button>
+            </Link>
           </Stack>
         </Stack>
 
