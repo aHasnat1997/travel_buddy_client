@@ -1,7 +1,6 @@
 import { FindSingleTrip } from "@/services/trips/trips.action";
 import { dateFormate } from "@/utils/dateFormate";
 import { Box, Button, Container, Stack, Typography } from "@mui/material";
-import Image from "next/image";
 import GalleryCarousel from "./component/galleryCarousel";
 
 async function SingleTripPage({ params }: { params: { id: string } }) {
@@ -16,13 +15,6 @@ async function SingleTripPage({ params }: { params: { id: string } }) {
       <Container>
         <Stack gap='2rem'>
           <Box width='100%'>
-            {/* <Image
-              alt="Trip Image"
-              src={tripData?.data?.tripImage[0]}
-              width={800}
-              height={800}
-              className="w-full"
-            /> */}
             <GalleryCarousel images={tripData?.data.tripImage} />
           </Box>
           <Stack width='100%' direction='column' gap='1rem'>

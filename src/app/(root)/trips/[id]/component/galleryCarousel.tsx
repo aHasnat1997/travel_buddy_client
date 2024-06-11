@@ -8,7 +8,6 @@ import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
-import styles from './galleryCarousel.module.css';
 import Image from 'next/image';
 import { Box, IconButton, Stack } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -16,9 +15,6 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const GalleryCarousel = ({ images }: { images: string[] }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
-
-  console.log(images);
-
 
   return (
     <Box sx={{ position: 'relative' }}>
@@ -61,7 +57,7 @@ const GalleryCarousel = ({ images }: { images: string[] }) => {
         }}
         thumbs={{ swiper: thumbsSwiper }}
         modules={[FreeMode, Navigation, Thumbs]}
-        className={styles.mySwiper2}
+        className='h-80 w-[40rem] mb-4'
       >
         {
           images?.map((img, index) => (
@@ -75,16 +71,6 @@ const GalleryCarousel = ({ images }: { images: string[] }) => {
             </SwiperSlide>
           ))
         }
-        {/* {Array.from({ length: 10 }, (_, index) => (
-          <SwiperSlide key={index}>
-            <Image
-              src={`https://swiperjs.com/demos/images/nature-${index + 1}.jpg`}
-              alt={`Slide ${index + 1}`}
-              layout="fill"
-              objectFit="cover"
-            />
-          </SwiperSlide>
-        ))} */}
       </SwiperClass>
       <SwiperClass
         onSwiper={setThumbsSwiper}
@@ -94,7 +80,7 @@ const GalleryCarousel = ({ images }: { images: string[] }) => {
         freeMode={true}
         watchSlidesProgress={true}
         modules={[FreeMode, Navigation, Thumbs]}
-        className={styles.mySwiper}
+        className='h-24 w-[40rem]'
       >
         {
           images?.map((img, index) => (
@@ -108,16 +94,6 @@ const GalleryCarousel = ({ images }: { images: string[] }) => {
             </SwiperSlide>
           ))
         }
-        {/* {Array.from({ length: 10 }, (_, index) => (
-          <SwiperSlide key={index}>
-            <Image
-              src={`https://swiperjs.com/demos/images/nature-${index + 1}.jpg`}
-              alt={`Thumb ${index + 1}`}
-              layout="fill"
-              objectFit="cover"
-            />
-          </SwiperSlide>
-        ))} */}
       </SwiperClass>
     </Box>
   );
