@@ -21,7 +21,7 @@ async function PopularDestination() {
     <section className={style.backgroundImage}>
       <Container>
         <Stack width='100%' alignItems='center' direction='column' gap='1rem'>
-          <Typography variant="h5" color='secondary.main' fontWeight='bold' sx={{ fontSize: { xs: '1.2rem', sm: '1.6rem' } }}>
+          <Typography variant="h5" color='#fff' fontWeight='bold' sx={{ fontSize: { xs: '1.2rem', sm: '1.6rem' } }}>
             EXPLORE WONDERFUL EXPERIENCE
           </Typography>
           <Typography variant="h2" color='#fff' fontWeight='bold' sx={{ fontSize: { xs: '2.5rem', sm: '3rem' } }}>
