@@ -1,0 +1,8 @@
+.backgroundImage {
+  padding: 5rem 0rem;
+  background-image: linear-gradient(to top, #1ec28b70, #1ec28b70), url(../../../../assets/img/popular-destination-img.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

@@ -1,0 +1,7 @@
+.backgroundImage {
+  background-image: linear-gradient(to top, #000000e0, #1ec28bea), url(../../assets/img/footer-bg.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

@@ -4,7 +4,6 @@ import assets from '@/assets';
 import { useUserLoginMutation } from '@/redux/api/endpoints/authApi';
 import { useAppDispatch } from '@/redux/hooks';
 import { storeUserInfo } from '@/redux/slices/authSlice';
-import { LoginUser } from '@/services/login/Login.action';
 import { Box, Button, Stack, TextField } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -15,14 +14,12 @@ import toast from 'react-hot-toast';
 function LoginPage() {
   const router = useRouter();
   const { register, handleSubmit } = useForm();
-  const [userLogin] = useUserLoginMutation();
+  const [userLogin, { isLoading, isSuccess }] = useUserLoginMutation();
   const dispatch = useAppDispatch();
 
   async function formSubmit(values: any) {
-    // console.log(values);
     try {
       const { data: userData } = await userLogin(values);
-      console.log(userData);
       if (userData.success) {
         dispatch(storeUserInfo(userData.data));
         toast.success(userData.message);
@@ -31,7 +28,8 @@ function LoginPage() {
       if (!userData.success) {
         toast.error(userData.message);
       }
-    } catch (error) {
+    } catch (error: any) {
+      toast.error(error.message);
       console.error(error)
     }
   };
@@ -62,7 +60,9 @@ function LoginPage() {
                   <Link href='/login'>Forgot Password?</Link>
                 </h4>
               </Stack>
-              <Button className='w-full' type='submit'>Login</Button>
+              {
+                <Button className='w-full' type='submit' disabled={isLoading || isSuccess}> {!isLoading ? 'Login' : 'Loading...'} </Button>
+              }
               <h4 className='mt-4 text-center'>Don&apos;t have an account?
                 <Link href='/register' className='text-primary'> Click for Register</Link></h4>
             </form>

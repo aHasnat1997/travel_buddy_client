@@ -7,12 +7,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <main className="relative">
+    <main className="min-h-screen relative flex flex-col">
       <div>
         <MainNav />
       </div>
       {children}
-      <Footer />
+      <div className="mt-auto">
+        <Footer />
+      </div>
     </main>
   )
 };

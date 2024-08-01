@@ -6,23 +6,30 @@ import { TUser } from './types';
 
 const commonPrivateRoutes = ['/dashboard'];
 const roleBasedPrivateRoutes = {
-  admin: '/dashboard/admin',
-  user: '/dashboard/user'
+  admin: ['/dashboard/admin'],
+  user: ['/dashboard/user']
 };
 
 // This function can be marked `async` if using `await` inside
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  // const accessToken = cookies().get('access_token')?.value;
-  // const { role } = jwtDecode(accessToken!) as TUser;
-  const role = 'ADMIN'
+  const token = cookies().get('refreshToken')?.value;
+  if (!token) {
+    return NextResponse.redirect(new URL('/login', request.url))
+  };
 
-  // if (!accessToken) {
-  //   return NextResponse.redirect(new URL('/', request.url))
-  // }
+  const { role } = jwtDecode(token!) as TUser;
 
-  if (pathname === '/dashboard') {
+  if (pathname === commonPrivateRoutes.find(r => r)) {
     return NextResponse.redirect(new URL(`/dashboard/${role.toLocaleLowerCase()}`, request.url))
+  }
+
+  if (pathname.startsWith(roleBasedPrivateRoutes.admin.find(r => r)!) && role === 'USER') {
+    return NextResponse.redirect(new URL(`/`, request.url))
+  }
+
+  if (pathname.startsWith(roleBasedPrivateRoutes.user.find(r => r)!) && role === 'ADMIN') {
+    return NextResponse.redirect(new URL(`/`, request.url))
   }
 
   // return NextResponse.redirect(new URL('/', request.url));

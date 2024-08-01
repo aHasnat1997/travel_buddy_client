@@ -10,9 +10,6 @@ type TDataTable = {
 }
 
 export default function DataTable({ rows, columns }: TDataTable) {
-  // console.log({ rows, columns });
-
-
   return (
     <Box sx={{ width: '100%', height: '80vh' }}>
       <DataGrid
